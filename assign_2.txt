@@ -1,0 +1,179 @@
+1. E-Commerce Store 
+const user = { 
+  name: "string", 
+  email: { 
+    type: "string", 
+    unique: true, 
+ }, 
+  password: { 
+    type:"string", 
+   minLength:8, 
+   maxLength:20 
+} 
+}; 
+ 
+const product = { 
+  title: "string", 
+  description: "string", 
+  price: { 
+    type: "number", 
+    min: 0, 
+  }, 
+  category: "string", 
+  stock: { 
+    type: "number", 
+    min: 0, 
+  }, 
+}; 
+ 
+const order = { 
+  userId: "ObjectId", 
+  products: [ 
+    { 
+      productId: "ObjectId", 
+      quantity: { 
+        type: "number", 
+        min: 1, 
+      }, 
+    }, 
+  ], 
+  totalAmount: { 
+    type: "number", 
+    min: 0, 
+  }, 
+  orderDate: "Date", 
+}; 
+ 
+const review = { 
+  userId: "ObjectId", 
+  productId: "ObjectId", 
+  rating: { 
+    type: "number", 
+    min: 1, 
+    max: 5, 
+  }, 
+  comment: "string", 
+}; 
+2. Online Course Platform 
+js 
+CopyEdit 
+const courseUser = { 
+name: "string", 
+email: { 
+type: "string", 
+unique: true 
+}, 
+role: { 
+type: "string", 
+enum: ["student", "instructor"], 
+}, 
+}; 
+const course = { 
+title: "string", 
+instructorId: "ObjectId", 
+category: "string", 
+price: { 
+type: "number", 
+min: 0, 
+}, 
+createdAt: "Date", 
+lessons: [ 
+{ 
+title: "string", 
+videoURL: "string", 
+duration: { 
+type: "number", 
+min: 1, 
+}, 
+}, 
+], 
+}; 
+const enrollment = { 
+userId: "ObjectId", 
+courseId: "ObjectId", 
+enrollDate: "Date", 
+}; 
+3. Event Booking System 
+js 
+CopyEdit 
+const eventUser = { 
+name: "string", 
+email: { 
+type: "string", 
+unique: true 
+}, 
+role: { 
+type: "string", 
+enum: ["organizer", "attendee"], 
+}, 
+}; 
+const event = { 
+title: "string", 
+organizerId: "ObjectId", 
+location: "string", 
+startTime: "Date", 
+endTime: "Date", 
+capacity: { 
+type: "number", 
+min: 1, 
+}, 
+}; 
+const booking = { 
+eventId: "ObjectId", 
+attendeeId: "ObjectId", 
+bookingDate: "Date", 
+}; 
+4. Blogging Platform 
+js 
+CopyEdit 
+const author = { 
+name: "string", 
+email: { 
+type: "string", 
+unique: true 
+}, 
+bio: "string", 
+}; 
+const article = { 
+title: "string", 
+content: "string", 
+authorId: "ObjectId", 
+tags: ["string"], 
+published: "boolean", 
+createdAt: "Date", 
+}; 
+const comment = { 
+articleId: "ObjectId", 
+userName: "string", 
+commentText: "string", 
+postedAt: "Date", 
+}; 
+5. Subscription App 
+js 
+CopyEdit 
+const subscriptionUser = { 
+email: { 
+type: "string", 
+unique: true, 
+}, 
+name: "string", 
+signupDate: "Date", 
+}; 
+const plan = { 
+name: "string", 
+price: { 
+type: "number", 
+min: 0, 
+}, 
+features: ["string"], 
+billingCycle: { 
+type: "string", 
+enum: ["monthly", "yearly"], 
+}, 
+}; 
+const subscription = { 
+userId: "ObjectId", 
+planId: "ObjectId", 
+startDate: "Date", 
+isActive: "boolean", 
+};
